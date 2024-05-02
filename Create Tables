@@ -1,0 +1,50 @@
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255),
+    Age INT,
+    Gender VARCHAR(10),
+    Contact VARCHAR(255),
+    Problem VARCHAR(255)
+);
+
+CREATE TABLE Doctors (
+    DoctorID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255),
+    Age INT,
+    Specialization VARCHAR(255),
+    Salary DECIMAL(10,2),
+    Contact VARCHAR(255)
+);
+
+CREATE TABLE Appointments (
+    AppointmentID INT PRIMARY KEY AUTO_INCREMENT,
+    PatientID INT,
+    DoctorID INT,
+    Date DATE,
+    Time TIME,
+    Status VARCHAR(20),
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);
+
+CREATE TABLE MedicalRecords (
+    RecordID INT PRIMARY KEY AUTO_INCREMENT,
+    PatientID INT,
+    DoctorID INT,
+    Date DATE,
+    Diagnosis TEXT,
+    Treatment TEXT,
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);
+
+CREATE TABLE Prescriptions (
+    PrescriptionID INT PRIMARY KEY AUTO_INCREMENT,
+    RecordID INT,
+    Medication VARCHAR(255),
+    Dosage VARCHAR(50),
+    Frequency VARCHAR(50),
+    StartDate DATE,
+    EndDate DATE,
+    FOREIGN KEY (RecordID) REFERENCES MedicalRecords(RecordID)
+);
