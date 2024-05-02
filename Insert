@@ -1,0 +1,39 @@
+// Inserting data into the Patients table
+
+INSERT INTO Patients (PatientID, Name, Age, Gender, Contact, Problem) VALUES
+('1001', 'Amulya', 35, 'Female', '9876543210', 'Sprained Ankle'),
+('1002', 'Rajesh', 28, 'Male', '9876543211', 'Spinal Cord Injury'),
+('1003', 'Ajay', 40, 'Male', '9876543212', 'Chest pain'),
+('1004', 'Priya', 10, 'Female', '9876543213', 'Fever, Cough');
+
+// Inserting data into the Doctors table
+
+INSERT INTO Doctors (DoctorID, Name, Age, Specialization, Salary, Contact) VALUES
+('1', 'Dr.Vikram Malhotra', 32, 'Cardiology', 150000, '6305094874'),
+('2', 'Dr.Rahul Kapoor', 58, 'Neurology', 150000, '6304585693'),
+('3', 'Dr.Sneha Joshi', 41, 'Pediatrics', 10000, '8074126426'),
+('4', 'Dr.Pooja Verma', 29, 'Orthopedics', 15000, '9876543203');
+
+// Inserting data into the Appointments table
+
+INSERT INTO Appointments (AppointmentID, PatientID, DoctorID, Date, Time, Status) VALUES
+('1', '1001', '4', '2024-04-15', '10:15', 'Completed'),
+('2', '1002', '2', '2024-04-16', '16:30', 'Scheduled'),
+('3', '1003', '1', '2024-04-17', '11:00', 'Scheduled'),
+('4', '1004', '3', '2024-04-18', '14:45', 'Cancelled');
+
+// Inserting data into the MedicalRecords table
+
+INSERT INTO MedicalRecords (RecordID, PatientID, DoctorID, Date, Diagnosis, Treatment) VALUES
+('1', '1001', '4', '2024-04-15', 'Sprained Ankle', 'Rest and Ice'),
+('2', '1002', '2', '2024-04-16', 'Spinal Cord Injury', 'Immobilisation'),
+('3', '1003', '1', '2024-04-17', 'Chest pain', 'Aspirin and evaluation'),
+('4', '1004', '3', '2024-04-18', 'Fever', 'Paracetamol and rest');
+
+// Inserting data into the Prescriptions table
+
+INSERT INTO Prescriptions (PrescriptionID, RecordID, Medication, Dosage, Frequency, StartDate, EndDate) VALUES
+('1', '1', 'Ibuprofen', '400mg', 'Every 6 hrs', '2024-04-15', '2024-04-19'),
+('2', '2', 'Methylprednisolone', '40mg', 'Once daily', '2024-04-19', '2024-04-21'),
+('3', '3', 'Nitroglycerin', '0.4mg', 'Once daily', '2024-04-17', '2024-04-19');
+('4', '3', 'Paracetamol', '500mg', 'Every 6 hrs', '2024-04-18', '2024-04-22');
